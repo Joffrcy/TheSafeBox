@@ -1,0 +1,140 @@
+/*Image qui remplit le background : */
+
+/*Général*/
+#body{
+	/*background-image:url(img/connexion.jpg);*/
+	margin:0;
+	padding:0;
+	-webkit-background-size: cover; /* pour anciens Chrome et Safari */
+	background-size: cover; /* version standardisée */
+
+}
+/*Page connexion.php */
+#article{
+	text-align:center;
+	margin: auto;
+}
+h1, h2, legend{
+	text-align:center;	
+	margin:auto;
+}
+h1{
+	margin-top : 8%;
+	font-size : 50px;
+	text-decoration : underline;
+}
+legend{
+	width:100%;
+	margin-top : 5%;
+}
+fieldset{
+	font-size : 25px;
+	border:none;
+}
+
+#inscription{
+	width: 250px;
+	height : 25px;
+	text-align:center;
+}
+
+#footer{
+	text-align:center;
+    position: fixed;
+    bottom:0;
+    width:100%;
+    display:inline-block;
+    vertical-align:top;
+}
+
+#nouveau{
+	text-align:center;
+	font-size: 17px;
+}
+
+#insertion{
+	text-align:center;
+	margin-top:22%;
+	font-size: 20px;
+}
+
+/*Pages Index*/
+
+.principale{ /*Pour décaler par rapport au menu fixe*/
+  margin-top: 50px;
+}
+
+.jumbotron {
+    color: black;
+    margin-bottom: 0%;
+}
+
+.jumbotron div{
+  /*background-image: url("img/connexion.jpg");*/
+  margin:0;
+  padding:0;
+  width: 100%;
+  background-size: cover; /* version standardisée */
+}
+
+.navbar {
+    border-radius: 0;
+  margin-bottom: 0;
+}
+
+.affix {
+    top: 0;
+    width: 100%;
+    z-index: 9999; /*laisse le navbar au premier plan*/
+}
+
+.affix + .container-fluid {
+    padding-top: 70px;
+}
+
+article{
+	text-align: justify;
+}
+table td{
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+table td, table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+table tr:nth-child(even){background-color: #f2f2f2;}
+
+table tr:hover {background-color: #ddd;}
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+}
+
+#inscriptionadmin label, #inscriptionadmin input {
+	font-size : 17px;
+}
+
+#insertionindex{
+	text-align:center;
+	color: Black;
+	margin-top:22%;
+	font-size: 20px;
+}
+
+footer{
+    padding: 25px;
+    width:100%;
+    display:inline-block;
+    vertical-align:top;
+}
+
+footer .glyphicon {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: gray;
+}
