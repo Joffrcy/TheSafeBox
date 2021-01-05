@@ -33,43 +33,52 @@
          }
          ?>
       <!-- Navigation -->
-      <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-         <div class="container">
-            <!-- Text Logo - Use this if you don't have a graphic logo -->
-            <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Leno</a> -->
-            <!-- Image Logo -->
-            <a class="navbar-brand logo-image" href="index.html"><img src="images/logo.png" alt="alternative"></a>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+        <div class="container">
+
             <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
-            <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
-               <ul class="navbar-nav ml-auto">
-                  <li class="nav-item">
-                     <a class="nav-link page-scroll" href="accueil.php">Accueil</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link page-scroll" href="index.php">Compte</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link page-scroll" href="connexion.php?action=connexion">Connexion</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link page-scroll" href="produits.html">Produits</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link page-scroll" href="terms.html">Conditions générales</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link page-scroll" href="index.php?action=logout" title="Logout">Logout</a>
-                  </li>
-               </ul>
-            </div>
-            <!-- end of navbar-collapse -->
-         </div>
-         <!-- end of container -->
-      </nav>
-      <!-- end of navbar -->
-      <!-- end of navigation -->
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="accueil.php">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="index.php">Compte</a>
+                    </li>
+                    <?php
+						if(empty($_SESSION)){
+					?>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="connexion.php?action=connexion">Connexion</a>
+                    </li>
+                    <?php
+							
+						}
+					?>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="produits.php">Produits</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="terms.php">Conditions générales</a>
+                    </li>
+					<?php
+						if(!empty($_SESSION)){
+					?>
+						<li class="nav-item">
+							<a class="nav-link page-scroll" href="accueil.php?action=logout" title="Logout">Logout</a>
+						</li>
+					<?php
+							
+						}
+					?>
+                </ul>
+            </div> <!-- end of navbar-collapse -->
+        </div> <!-- end of container -->
+    </nav> <!-- end of navbar -->
+    <!-- end of navigation -->
       <!-- Header -->
       <header class="ex-header bg-dark-blue">
          <div class="container">
@@ -94,6 +103,7 @@
                      if (!empty($_SESSION)){
                           echo '<p class="mb-5" id="Sous-titre"> Vous êtes connectés sur votre session en tant que ' . $_SESSION["login"] . '</p>';
                           echo "<img src='uploads/".$_SESSION["login"].".jpg' alt='Vous n avez pas encore ajouté de photo.' width='300'>";
+                          echo "<img src='qrcodes/".$_SESSION["login"].".png' alt='Votre qr code existe pas. Contactez un administrateur.' width='300'>";
                           echo "</br>";
                       }
                       
@@ -104,7 +114,7 @@
                          $file_size = $_FILES['image']['size'];
                          $file_tmp = $_FILES['image']['tmp_name'];
                          $file_type = $_FILES['image']['type'];
-						 $tmp = explode('.', $file_name);
+                         $tmp = explode('.', $file_name);
                          $file_ext=strtolower(end($tmp));
                      
                          $extensions= array("jpeg","jpg","png");
@@ -116,6 +126,7 @@
                          if(empty($errors)==true) {
                              move_uploaded_file($file_tmp,"uploads/".$_SESSION["login"].'.'.$file_ext);
                              updateverif($_SESSION["login"]);
+                             header("Refresh:0");
                          }else{
                              print_r($errors);
                          }
@@ -179,52 +190,45 @@
       <!-- end of ex-form-1 -->
       <!-- end of form -->
       <!-- Footer -->
-      <div class="footer bg-dark-blue">
-         <div class="container">
+    <div class="footer bg-dark-blue">
+        <div class="container">
             <div class="row">
-               <div class="col-lg-12">
-                  <div class="footer-col first">
-                     <h6>Secur Esaip</h6>
-                     <p class="p-small">Secur'Esaip, c'est l'opportunité de sécurisé nos biens en ayant un accès simple et efficace.</p>
-                  </div>
-                  <!-- end of footer-col -->
-                  <div class="footer-col second">
-                     <h6>Liens</h6>
-                     <ul class="list-unstyled li-space-lg p-small">
-                        <li>Important: <a href="terms.html">Conditions Générales</a></li>
-                        <li>Menu: <a href="accueil.php">Accueil</a>, <a href="produits.html">Produits</a></li>
-                     </ul>
-                  </div>
-                  <!-- end of footer-col -->
-                  <div class="footer-col third">
-                     <h6>Contact</h6>
-                     <p class="p-small">Des questions ? Donnez votre avis <a href="mailto:contact@leno.com"><strong>TheSafeBox@gmail.com</strong></a></p>
-                  </div>
-                  <!-- end of footer-col -->
-               </div>
-               <!-- end of col -->
-            </div>
-            <!-- end of row -->
-         </div>
-         <!-- end of container -->
-      </div>
-      <!-- end of footer -->
-      <!-- end of footer -->
-      <!-- Copyright -->
-      <div class="copyright bg-dark-blue">
-         <div class="container">
+                <div class="col-lg-12">
+                    <div class="footer-col first">
+                        <h6>Secur Esaip</h6>
+                        <p class="p-small">Secur'Esaip, c'est l'opportunité de sécurisé nos biens en ayant un accès simple et efficace.</p>
+                    </div> <!-- end of footer-col -->
+                    <div class="footer-col second">
+                        <h6>Liens</h6>
+                        <ul class="list-unstyled li-space-lg p-small">
+                            <li>Important: <a href="terms.php">Conditions Générales</a></li>
+                            <li>Menu: <a href="accueil.php">Accueil</a>, <a href="produits.php">Produits</a></li>
+                        </ul>
+                    </div> <!-- end of footer-col -->
+                    <div class="footer-col third">
+                        <h6>Contact</h6>
+                        <p class="p-small">Des questions ? Donnez votre avis <a href="mailto:TheSafeBox@gmail.com"><strong>TheSafeBox@gmail.com</strong></a></p>
+                    </div> <!-- end of footer-col -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of footer -->  
+    <!-- end of footer -->
+
+
+
+    <!-- Copyright -->
+    <div class="copyright bg-dark-blue">
+        <div class="container">
             <div class="row">
-               <div class="col-lg-12">
-                  <p class="p-small">Copyright ©<a href="https://inovatik.com">TheSafeBox</a></p>
-               </div>
-               <!-- end of col -->
-            </div>
-            <!-- enf of row -->
-         </div>
-         <!-- end of container -->
-      </div>
-      <!-- end of copyright -->
-      <!-- end of copyright -->
+                <div class="col-lg-12">
+                    <p class="p-small">Copyright ©TheSafeBox</p>
+                </div> <!-- end of col -->
+            </div> <!-- enf of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of copyright --> 
+    <!-- end of copyright -->
+
       <!-- Scripts -->
       <script src="js/jquery.min.js"></script> <!-- jQuery Magueule -->
       <script src="js/bootstrap.min.js"></script> <!-- Bootstrap framework -->

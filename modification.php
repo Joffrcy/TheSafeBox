@@ -39,44 +39,52 @@ include 'formulaires.php';
 
    ?>
    <!-- Navigation -->
-   <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-      <div class="container">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+        <div class="container">
 
-         <!-- Text Logo - Use this if you don't have a graphic logo -->
-         <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Leno</a> -->
+            <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-         <!-- Image Logo -->
-         <a class="navbar-brand logo-image" href="index.html"><img src="images/logo.png" alt="alternative"></a>
-
-         <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
-            <span class="navbar-toggler-icon"></span>
-         </button>
-
-         <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
-            <ul class="navbar-nav ml-auto">
-               <li class="nav-item">
-                  <a class="nav-link page-scroll" href="accueil.php">Accueil</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link page-scroll" href="index.php">Compte</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link page-scroll" href="connexion.php?action=connexion">Connexion</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link page-scroll" href="produits.html">Produits</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link page-scroll" href="terms.html">Conditions générales</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link page-scroll" href="index.php?action=logout" title="Logout">Logout</a>
-               </li>
-            </ul>
-         </div> <!-- end of navbar-collapse -->
-      </div> <!-- end of container -->
-   </nav> <!-- end of navbar -->
-   <!-- end of navigation -->
+            <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="accueil.php">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="index.php">Compte</a>
+                    </li>
+                    <?php
+						if(empty($_SESSION)){
+					?>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="connexion.php?action=connexion">Connexion</a>
+                    </li>
+                    <?php
+							
+						}
+					?>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="produits.php">Produits</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="terms.php">Conditions générales</a>
+                    </li>
+					<?php
+						if(!empty($_SESSION)){
+					?>
+						<li class="nav-item">
+							<a class="nav-link page-scroll" href="accueil.php?action=logout" title="Logout">Logout</a>
+						</li>
+					<?php
+							
+						}
+					?>
+                </ul>
+            </div> <!-- end of navbar-collapse -->
+        </div> <!-- end of container -->
+    </nav> <!-- end of navbar -->
+    <!-- end of navigation -->
    <!-- Header -->
    <header class="ex-header bg-dark-blue">
       <div class="container">
@@ -146,6 +154,7 @@ include 'formulaires.php';
                            if (supprimerClient($_POST["mail"])) {
                               //Suppression de la photo
                               unlink("uploads/".$_POST["mail"].".jpg");
+                              unlink("qrcodes/".$_POST["mail"].".png");
                               unlink("/home/pi/TheSafeBox/profiles/".$_POST["mail"].".jpg");
                               echo '<p id="insertionindex"> Suppression effectuée de ' . $_POST["mail"] . '</p>';
                            }
@@ -160,44 +169,44 @@ include 'formulaires.php';
       </div>
    </article>
    <!-- Footer -->
-   <div class="footer bg-dark-blue">
-      <div class="container">
-         <div class="row">
-            <div class="col-lg-12">
-               <div class="footer-col first">
-                  <h6>Secur Esaip</h6>
-                  <p class="p-small">Secur'Esaip, c'est l'opportunité de sécurisé nos biens en ayant un accès simple et efficace.</p>
-               </div> <!-- end of footer-col -->
-               <div class="footer-col second">
-                  <h6>Liens</h6>
-                  <ul class="list-unstyled li-space-lg p-small">
-                     <li>Important: <a href="terms.html">Conditions Générales</a></li>
-                     <li>Menu: <a href="accueil.php">Accueil</a>, <a href="produits.html">Produits</a></li>
-                  </ul>
-               </div> <!-- end of footer-col -->
-               <div class="footer-col third">
-                  <h6>Contact</h6>
-                  <p class="p-small">Des questions ? Donnez votre avis <a href="mailto:contact@leno.com"><strong>TheSafeBox@gmail.com</strong></a></p>
-               </div> <!-- end of footer-col -->
-            </div> <!-- end of col -->
-         </div> <!-- end of row -->
-      </div> <!-- end of container -->
-   </div> <!-- end of footer -->
-   <!-- end of footer -->
+    <div class="footer bg-dark-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer-col first">
+                        <h6>Secur Esaip</h6>
+                        <p class="p-small">Secur'Esaip, c'est l'opportunité de sécurisé nos biens en ayant un accès simple et efficace.</p>
+                    </div> <!-- end of footer-col -->
+                    <div class="footer-col second">
+                        <h6>Liens</h6>
+                        <ul class="list-unstyled li-space-lg p-small">
+                            <li>Important: <a href="terms.php">Conditions Générales</a></li>
+                            <li>Menu: <a href="accueil.php">Accueil</a>, <a href="produits.php">Produits</a></li>
+                        </ul>
+                    </div> <!-- end of footer-col -->
+                    <div class="footer-col third">
+                        <h6>Contact</h6>
+                        <p class="p-small">Des questions ? Donnez votre avis <a href="mailto:TheSafeBox@gmail.com"><strong>TheSafeBox@gmail.com</strong></a></p>
+                    </div> <!-- end of footer-col -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of footer -->  
+    <!-- end of footer -->
 
 
 
-   <!-- Copyright -->
-   <div class="copyright bg-dark-blue">
-      <div class="container">
-         <div class="row">
-            <div class="col-lg-12">
-               <p class="p-small">Copyright ©<a href="https://inovatik.com">TheSafeBox</a></p>
-            </div> <!-- end of col -->
-         </div> <!-- enf of row -->
-      </div> <!-- end of container -->
-   </div> <!-- end of copyright -->
-   <!-- end of copyright -->
+    <!-- Copyright -->
+    <div class="copyright bg-dark-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="p-small">Copyright ©TheSafeBox</p>
+                </div> <!-- end of col -->
+            </div> <!-- enf of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of copyright --> 
+    <!-- end of copyright -->
 
 
    <!-- Scripts -->

@@ -55,35 +55,35 @@ function afficheFormulaireAjoutClient()
 	$bdd = new PDO('sqlite:bdd/SecurEsaip.sqlite');
 	$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); //Affiche les erreurs
 	//Requête SQL
-	$sql = "SELECT DISTINCT nom_fr, nom_en FROM pays";
+	$sql = "SELECT DISTINCT nom_fr, nom_en FROM pays ORDER BY nom_fr";
 	//Exécute la requête
 	$res = $bdd->query($sql);
 	$pays = $res->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
-	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+	<form id="inscriptionadmin" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 		<fieldset>
 			<div class="">
-				<label for="id_Nom" class="mb-4">Nom : </label><input name="nom" id="id_Nom" placeholder="Nom" class="form-control-input" required><br>
-				<label for="id_Prenom" class="mb-4">Prénom : </label><input name="prenom" id="id_Prenom" placeholder="Prenom" class="form-control-input" required><br>
-				<label for="id_mail" class="mb-4">Adresse Mail : </label><input name="email" id="id_mail" placeholder="Mail" class="form-control-input" required><br>
-				<label for="id_pass" class="mb-4">Mot de passe : </label><input type="password" name="password" id="id_pass" placeholder="Password" class="form-control-input" required><br>
-				<label for="id_pass" class="mb-4">Confirmer votre mot de passe : </label><input type="password" name="verifpass" id="id_pass" placeholder="Mot de passe" class="form-control-input" required><br>
-				<label for="id_tel" class="mb-4">Téléphone : </label><input name="tel" id="id_tel" placeholder="XX XX XX XX XX" class="form-control-input" required><br>
-				<label for="id_adresse" class="mb-4">Adresse : </label><input name="adresse" id="id_adresse" placeholder="Adresse" class="form-control-input" required><br>
-				<label for="id_cp" class="mb-4">Code postal : </label><input name="cp" id="id_cp" placeholder="Code postal" class="form-control-input" required><br>
-				<label for="id_ville" class="mb-4">Ville : </label><input name="ville" id="id_ville" placeholder="Ville" class="form-control-input" required><br>
-				<label for="id_pays">Pays :</label><select id="id_pays" name="pays" size="1" class="form-control-select">
+				<label for="id_Nom">Nom : </label><input name="nom" class="form-control-input" id="id_Nom" placeholder="Nom" required size="20" /><br />
+				<label for="id_Prenom">Prénom : </label><input name="prenom" class="form-control-input" id="id_Prenom" placeholder="Prenom" required size="20" /><br />
+				<label for="id_mail">Adresse Mail : </label><input type="email" class="form-control-input" name="mail" id="id_mail" placeholder="@mail" required size="20" /><br />
+				<label for="id_pass">Mot de passe : </label><input type="password" class="form-control-input" name="pass" required id="id_pass" size="10" /><br />
+				<label for="id_pass">Confirmer votre mot de passe : </label><input type="password" class="form-control-input" name="verifpass" required id="id_pass" size="10" /><br />
+				<label for="id_tel">Téléphone : </label><input type="tel" class="form-control-input" name="tel" id="id_tel" placeholder="n° téléphone" required /><br />
+				<label for="id_adresse">Adresse : </label><input name="adresse" class="form-control-input" id="id_adresse" placeholder="N° et rue" required /><br />
+				<label for="id_cp">Code Postal : </label><input class="form-control-input" name="cp" id="id_cp" placeholder="Code postal" required /><br />
+				<label for="id_ville">Ville : </label><input name="ville" class="form-control-input" id="id_ville" placeholder="Ville" required /><br />
+				<label for="id_pays">Pays :</label>
+				<select id="id_pays" class="form-control-select" name="pays" size="1">
 					<?php // on se sert de value directement pour l'insertion
 					foreach ($pays as $nom) {
 						echo '<option value="' . $nom["nom_fr"] . '">' . $nom["nom_fr"] . '</option>';
 					}
 					?>
 				</select><br />
-				<label for="id_coffre" class="mb-4">Code du coffre : </label><input name="coffre" id="id_coffre" placeholder="Code du coffre" class="form-control-input" required>
-			</div><br>
-
-			<input type="submit" id="inscription" value="S'inscrire" class="form-control-submit-button" />
+				<label for="id_coffre">Code du coffre : </label><input name="coffre" class="form-control-input" id="id_coffre" placeholder="Code du coffre" required /><br />
+				<input type="submit" class="form-control-submit-button" id="inscription" value="Insérer" />
+			</div>
 		</fieldset>
 	</form>
 <?php
@@ -110,8 +110,7 @@ function afficheFormulaireAjoutClientAdmin()
 			<div class="">
 				<label for="id_Nom">Nom : </label><input name="nom" class="form-control-input" id="id_Nom" placeholder="Nom" required size="20" /><br />
 				<label for="id_Prenom">Prénom : </label><input name="prenom" class="form-control-input" id="id_Prenom" placeholder="Prenom" required size="20" /><br />
-				<label for="id_mail">Adresse Mail : </label><input type="email" class="form-control-input" name="mail" id="id_mail" placeholder="@mail" required size="20" onchange="validation();" /><br />
-				<p id="resultat"></p>
+				<label for="id_mail">Adresse Mail : </label><input type="email" class="form-control-input" name="mail" id="id_mail" placeholder="@mail" required size="20" /><br />
 				<label for="id_pass">Mot de passe : </label><input type="password" class="form-control-input" name="pass" required id="id_pass" size="10" /><br />
 				<label for="id_pass">Confirmer votre mot de passe : </label><input type="password" class="form-control-input" name="verifpass" required id="id_pass" size="10" /><br />
 				<label for="id_status">Status :</label>
@@ -312,18 +311,7 @@ function afficheFormulairePhoto()
 	<form action = "" method = "POST" enctype = "multipart/form-data">
          <input type = "file" name = "image" />
          <input type = "submit"/>
-		<?php
-		if(!empty($_FILES['image'])){
-		?>
-         <ul>
-            <li>Sent file: <?php echo $_FILES['image']['name'];  ?>
-            <li>File size: <?php echo $_FILES['image']['size'];  ?>
-            <li>File type: <?php echo $_FILES['image']['type'] ?>
-         </ul>
-		<?php
-		}
-		?>
-      </form>
+    </form>
 <?php
 	echo "<br/>";
 } // fin afficheFormulairePhoto

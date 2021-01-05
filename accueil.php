@@ -37,12 +37,6 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
         <div class="container">
-            
-            <!-- Text Logo - Use this if you don't have a graphic logo -->
-            <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Leno</a> -->
-
-            <!-- Image Logo -->
-            <a class="navbar-brand logo-image" href="index.html"><img src="images/logo.png" alt="alternative"></a>
 
             <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
                 <span class="navbar-toggler-icon"></span>
@@ -56,14 +50,21 @@
                     <li class="nav-item">
                         <a class="nav-link page-scroll" href="index.php">Compte</a>
                     </li>
+                    <?php
+						if(empty($_SESSION)){
+					?>
                     <li class="nav-item">
                         <a class="nav-link page-scroll" href="connexion.php?action=connexion">Connexion</a>
                     </li>
+                    <?php
+							
+						}
+					?>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="produits.html">Produits</a>
+                        <a class="nav-link page-scroll" href="produits.php">Produits</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="terms.html">Conditions générales</a>
+                        <a class="nav-link page-scroll" href="terms.php">Conditions générales</a>
                     </li>
 					<?php
 						if(!empty($_SESSION)){
@@ -102,306 +103,6 @@
     </header> <!-- end of header -->
     <!-- end of header -->
 
-    <!-- Features -->
-    <div class="tabs">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="h2-heading">FEATURES</h2>
-                    <div class="p-heading">Leno was designed based on input from personal development coaches and popular trainers so it offers all required features</div>
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-            <div class="row">
-
-                <!-- Tabs Links -->
-                <ul class="nav nav-tabs" id="templateTabs" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="nav-tab-1" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true"><i class="fas fa-cog"></i>CONFIGURING</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="nav-tab-2" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false"><i class="fas fa-binoculars"></i>TRACKING</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="nav-tab-3" data-toggle="tab" href="#tab-3" role="tab" aria-controls="tab-3" aria-selected="false"><i class="fas fa-search"></i>MONITORING</a>
-                    </li>
-                </ul>
-                <!-- end of tabs links -->
-
-
-                <!-- Tabs Content-->
-                <div class="tab-content" id="templateTabsContent">
-                    
-                    <!-- Tab -->
-                    <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
-                        <div class="container">
-                            <div class="row">
-                                
-                                <!-- Icon Cards Pane -->
-                                <div class="col-lg-4">
-                                    <ul class="list-unstyled li-space-lg first">
-                                        <li class="media">
-                                            <span class="fa-stack">
-                                                <i class="fas fa-circle fa-stack-2x"></i>
-                                                <i class="far fa-compass fa-stack-1x"></i>
-                                            </span>
-                                            <div class="media-body">
-                                                <h4>Goal Setting</h4>
-                                                <p>Like any self improving process, everything starts with setting your goals and committing to them</p>
-                                            </div>
-                                        </li>
-                                        <li class="media">
-                                            <span class="fa-stack">
-                                                <i class="fas fa-circle fa-stack-2x"></i>
-                                                <i class="fas fa-code fa-stack-1x"></i>
-                                            </span>
-                                            <div class="media-body">
-                                                <h4>Visual Editor</h4>
-                                                <p>Leno provides a well designed and ergonomic visual editor for you to edit your quick notes</p>
-                                            </div>
-                                        </li>
-                                        <li class="media">
-                                            <span class="fa-stack">
-                                                <i class="fas fa-circle fa-stack-2x"></i>
-                                                <i class="far fa-gem fa-stack-1x"></i>
-                                            </span>
-                                            <div class="media-body">
-                                                <h4>Refined Options</h4>
-                                                <p>Each option packaged in the app's menus is provided in order to improve you personally</p>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div> <!-- end of col -->
-                                <!-- end of icon cards pane -->
-
-                                <!-- Image Pane -->
-                                <div class="col-lg-4">
-                                    <img class="img-fluid" src="images/features-smartphone-1.png" alt="alternative">
-                                </div> <!-- end of col -->
-                                <!-- end of image pane -->
-                                
-                                <!-- Icon Cards Pane -->
-                                <div class="col-lg-4">
-                                    <ul class="list-unstyled li-space-lg">
-                                        <li class="media">
-                                            <span class="fa-stack">
-                                                <i class="fas fa-circle fa-stack-2x"></i>
-                                                <i class="fas fa-calendar-alt fa-stack-1x"></i>
-                                            </span>
-                                            <div class="media-body">
-                                                <h4>Calendar Input</h4>
-                                                <p>Schedule your appointments, meetings and periodical evaluations using the tools</p>
-                                            </div>
-                                        </li>
-                                        <li class="media">
-                                            <span class="fa-stack">
-                                                <i class="fas fa-circle fa-stack-2x"></i>
-                                                <i class="fas fa-book fa-stack-1x"></i>
-                                            </span>
-                                            <div class="media-body">
-                                                <h4>Easy Reading</h4>
-                                                <p>Reading focus mode for long form articles, ebooks and other materials with long text</p>
-                                            </div>
-                                        </li>
-                                        <li class="media">
-                                            <span class="fa-stack">
-                                                <i class="fas fa-circle fa-stack-2x"></i>
-                                                <i class="fas fa-cube fa-stack-1x"></i>
-                                            </span>
-                                            <div class="media-body">
-                                                <h4>Good Foundation</h4>
-                                                <p>Get a solid foundation for your self development efforts. Try Leno mobile app for devices</p>
-                                            </div>
-                                        </li>
-                                    </ul> 
-                                </div> <!-- end of col -->
-                                <!-- end of icon cards pane -->
-
-                            </div> <!-- end of row -->
-                        </div> <!-- end of container -->
-                    </div> <!-- end of tab-pane -->
-                    <!-- end of tab -->
-
-                    <!-- Tab -->
-                    <div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="tab-2">
-                        <div class="container">
-                            <div class="row">
-
-                                <!-- Image Pane -->
-                                <div class="col-lg-4">
-                                    <img class="img-fluid" src="images/features-smartphone-2.png" alt="alternative">
-                                </div> <!-- end of col -->
-                                <!-- end of image pane -->
-                                
-                                <!-- Text And Icon Cards Area -->
-                                <div class="col-lg-8">
-                                    <h3>Track Result Based On Your</h3>
-                                    <p class="sub-heading">After you've configured the app and settled on the data gathering techniques you can start the information trackers and begin collecting those long awaited interesting details.</p>
-                                    <ul class="list-unstyled li-space-lg first">
-                                        <li class="media">
-                                            <span class="fa-stack">
-                                                <i class="fas fa-circle fa-stack-2x"></i>
-                                                <i class="fas fa-cube fa-stack-1x"></i>
-                                            </span>
-                                            <div class="media-body">
-                                                <h4>Good Foundation</h4>
-                                                <p>Get a solid foundation for your self development efforts. Try Leno mobile app now</p>
-                                            </div>
-                                        </li>
-                                        <li class="media">
-                                            <span class="fa-stack">
-                                                <i class="fas fa-circle fa-stack-2x"></i>
-                                                <i class="fas fa-book fa-stack-1x"></i>
-                                            </span>
-                                            <div class="media-body">
-                                                <h4>Easy Reading</h4>
-                                                <p>Reading focus mode for long form articles, ebooks and other materials with long text</p>
-                                            </div>
-                                        </li>
-                                        <li class="media">
-                                            <span class="fa-stack">
-                                                <i class="fas fa-circle fa-stack-2x"></i>
-                                                <i class="far fa-compass fa-stack-1x"></i>
-                                            </span>
-                                            <div class="media-body">
-                                                <h4>Goal Setting</h4>
-                                                <p>Like any self improving process, everything starts with setting goals and comiting</p>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <ul class="list-unstyled li-space-lg">
-                                        <li class="media">
-                                            <span class="fa-stack">
-                                                <i class="fas fa-circle fa-stack-2x"></i>
-                                                <i class="fas fa-calendar-alt fa-stack-1x"></i>
-                                            </span>
-                                            <div class="media-body">
-                                                <h4>Calendar Input</h4>
-                                                <p>Schedule your appointments, meetings and periodical evaluations using the tools</p>
-                                            </div>
-                                        </li>
-                                        <li class="media">
-                                            <span class="fa-stack">
-                                                <i class="fas fa-circle fa-stack-2x"></i>
-                                                <i class="fas fa-code fa-stack-1x"></i>
-                                            </span>
-                                            <div class="media-body">
-                                                <h4>Visual Editor</h4>
-                                                <p>Leno provides a well designed and ergonomic visual editor for you to edit your notes</p>
-                                            </div>
-                                        </li>
-                                        <li class="media">
-                                            <span class="fa-stack">
-                                                <i class="fas fa-circle fa-stack-2x"></i>
-                                                <i class="far fa-gem fa-stack-1x"></i>
-                                            </span>
-                                            <div class="media-body">
-                                                <h4>Refined Options</h4>
-                                                <p>Each option packaged in the app's menus is provided in order to improve you personally</p>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div> <!-- end of col -->
-                                <!-- end of text and icon cards area -->
-
-                            </div> <!-- end of row -->
-                        </div> <!-- end of container -->
-                    </div> <!-- end of tab-pane -->
-                    <!-- end of tab -->
-
-                    <!-- Tab -->
-                    <div class="tab-pane fade" id="tab-3" role="tabpanel" aria-labelledby="tab-3">
-                        <div class="container">
-                            <div class="row">
-
-                                <!-- Text And Icon Cards Area -->
-                                <div class="col-lg-8">
-                                    <ul class="list-unstyled li-space-lg first">
-                                        <li class="media">
-                                            <span class="fa-stack">
-                                                <i class="fas fa-circle fa-stack-2x"></i>
-                                                <i class="fas fa-cube fa-stack-1x"></i>
-                                            </span>
-                                            <div class="media-body">
-                                                <h4>Good Foundation</h4>
-                                                <p>Get a solid foundation for your self development efforts. Try Leno mobile app today</p>
-                                            </div>
-                                        </li>
-                                        <li class="media">
-                                            <span class="fa-stack">
-                                                <i class="fas fa-circle fa-stack-2x"></i>
-                                                <i class="fas fa-book fa-stack-1x"></i>
-                                            </span>
-                                            <div class="media-body">
-                                                <h4>Easy Reading</h4>
-                                                <p>Reading focus mode for long form articles, ebooks and other materials with long text</p>
-                                            </div>
-                                        </li>
-                                        <li class="media">
-                                            <span class="fa-stack">
-                                                <i class="fas fa-circle fa-stack-2x"></i>
-                                                <i class="far fa-compass fa-stack-1x"></i>
-                                            </span>
-                                            <div class="media-body">
-                                                <h4>Goal Setting</h4>
-                                                <p>Like any self improving process, everything starts with setting your goals and comiting</p>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <ul class="list-unstyled li-space-lg">
-                                        <li class="media">
-                                            <span class="fa-stack">
-                                                <i class="fas fa-circle fa-stack-2x"></i>
-                                                <i class="fas fa-calendar-alt fa-stack-1x"></i>
-                                            </span>
-                                            <div class="media-body">
-                                                <h4>Calendar Input</h4>
-                                                <p>Schedule your appointments, meetings and periodical evaluations using the tools</p>
-                                            </div>
-                                        </li>
-                                        <li class="media">
-                                            <span class="fa-stack">
-                                                <i class="fas fa-circle fa-stack-2x"></i>
-                                                <i class="fas fa-code fa-stack-1x"></i>
-                                            </span>
-                                            <div class="media-body">
-                                                <h4>Visual Editor</h4>
-                                                <p>Leno provides a well designed and ergonomic visual editor for you to edit your notes</p>
-                                            </div>
-                                        </li>
-                                        <li class="media">
-                                            <span class="fa-stack">
-                                                <i class="fas fa-circle fa-stack-2x"></i>
-                                                <i class="far fa-gem fa-stack-1x"></i>
-                                            </span>
-                                            <div class="media-body">
-                                                <h4>Refined Options</h4>
-                                                <p>Each option packaged in the app's menus is provided in order to improve you personally</p>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <h3>Monitoring Tools Evaluation</h3>
-                                    <p class="sub-heading">Monitor the evolution of your finances and health state using tools integrated in Leno. The generated real time reports can be filtered based on any desired criteria.</p>
-                                </div> <!-- end of col -->
-                                <!-- end of text and icon cards area -->
-
-                                <!-- Image Pane -->
-                                <div class="col-lg-4">
-                                    <img class="img-fluid" src="images/features-smartphone-3.png" alt="alternative">
-                                </div> <!-- end of col -->
-                                <!-- end of image pane -->
-                                    
-                            </div> <!-- end of row -->
-                        </div> <!-- end of container -->
-                    </div><!-- end of tab-pane -->
-                    <!-- end of tab -->
-
-                </div> <!-- end of tab-content -->
-                <!-- end of tabs content -->
-
-            </div> <!-- end of row --> 
-        </div> <!-- end of container --> 
-    </div> <!-- end of tabs -->
-    <!-- end of features -->
 
     <!-- Footer -->
     <div class="footer bg-dark-blue">
@@ -415,13 +116,13 @@
                     <div class="footer-col second">
                         <h6>Liens</h6>
                         <ul class="list-unstyled li-space-lg p-small">
-                            <li>Important: <a href="terms.html">Conditions Générales</a></li>
-                            <li>Menu: <a href="accueil.php">Accueil</a>, <a href="produits.html">Produits</a></li>
+                            <li>Important: <a href="terms.php">Conditions Générales</a></li>
+                            <li>Menu: <a href="accueil.php">Accueil</a>, <a href="produits.php">Produits</a></li>
                         </ul>
                     </div> <!-- end of footer-col -->
                     <div class="footer-col third">
                         <h6>Contact</h6>
-                        <p class="p-small">Des questions ? Donnez votre avis <a href="mailto:contact@leno.com"><strong>TheSafeBox@gmail.com</strong></a></p>
+                        <p class="p-small">Des questions ? Donnez votre avis <a href="mailto:TheSafeBox@gmail.com"><strong>TheSafeBox@gmail.com</strong></a></p>
                     </div> <!-- end of footer-col -->
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
@@ -436,7 +137,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <p class="p-small">Copyright ©<a href="https://inovatik.com">TheSafeBox</a></p>
+                    <p class="p-small">Copyright ©TheSafeBox</p>
                 </div> <!-- end of col -->
             </div> <!-- enf of row -->
         </div> <!-- end of container -->
