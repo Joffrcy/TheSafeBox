@@ -37,17 +37,10 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
         <div class="container">
-<<<<<<< HEAD
 			
 			<!-- Image Logo -->
             <a class="navbar-brand logo-image" href="accueil.php"><img src="images/logo.png" alt="alternative"></a>
-			
-=======
 
-	    <!-- Image Logo -->
-            <a class="navbar-brand logo-image" href="accueil.php"><img src="images/logo.png" alt="alternative"></a>
-	    
->>>>>>> 026781ae7c278bc8a91b922c1c7480925793cc26
             <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
                 <span class="navbar-toggler-icon"></span>
             </button>
