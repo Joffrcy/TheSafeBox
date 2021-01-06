@@ -61,6 +61,7 @@ class VideoCamera(object):
        # Only process every other frame of video to save time
         if process_this_frame:
             
+            #QR code parts
             # if there is a bounding box, draw one, along with the data
             if(bbox is not None):
                 if data:
@@ -69,6 +70,7 @@ class VideoCamera(object):
                         if data==file:
                             print(data)
                             print("coffre unlock")
+            #End QR code parts
             
             # Find all the faces and face encodings in the current frame of video
             face_locations = face_recognition.face_locations(rgb_small_frame)
