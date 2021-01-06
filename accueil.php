@@ -37,7 +37,11 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
         <div class="container">
+			
+			<!-- Image Logo -->
+            <a class="navbar-brand logo-image" href="accueil.php"><img src="images/logo.png" alt="alternative"></a>
 
+			
             <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
                 <span class="navbar-toggler-icon"></span>
             </button>
