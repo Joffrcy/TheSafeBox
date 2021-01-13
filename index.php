@@ -199,8 +199,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="footer-col first">
-                        <h6>Secur Esaip</h6>
-                        <p class="p-small">Secur'Esaip, c'est l'opportunité de sécurisé nos biens en ayant un accès simple et efficace.</p>
+                        <h6>The Safe Box</h6>
+                        <p class="p-small">The Safe Box, c'est l'opportunité de sécurisé nos biens en ayant un accès simple et efficace.</p>
                     </div> <!-- end of footer-col -->
                     <div class="footer-col second">
                         <h6>Liens</h6>

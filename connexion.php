@@ -141,7 +141,7 @@ include('/var/www/html/lib/phpqrcode/qrlib.php');
 					
 					//Formulaire d'inscription
 					if(!empty($_GET) && isset($_GET["action"]) && $_GET["action"]=="inscription"){
-						echo '<h2> Formlulaire d\'inscription :</h2></br>';
+						echo '<h2> Formulaire d\'inscription :</h2></br>';
 						afficheFormulaireAjoutClient();
 						echo '<h3 id="nouveau">Vous possédez déjà un compte ? - <a href="connexion.php?action=connexion">Identifiez-vous </a></h3>';
 					}
@@ -187,8 +187,8 @@ include('/var/www/html/lib/phpqrcode/qrlib.php');
             <div class="row">
                 <div class="col-lg-12">
                     <div class="footer-col first">
-                        <h6>Secur Esaip</h6>
-                        <p class="p-small">Secur'Esaip, c'est l'opportunité de sécurisé nos biens en ayant un accès simple et efficace.</p>
+                        <h6>The Safe Box</h6>
+                        <p class="p-small">The Safe Box, c'est l'opportunité de sécurisé nos biens en ayant un accès simple et efficace.</p>
                     </div> <!-- end of footer-col -->
                     <div class="footer-col second">
                         <h6>Liens</h6>
